@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<style>
+
+body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background-color: #FFF;
+}
+
+#container {
+	background-color: #FFF;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+}
+
+#container img {
+  left: 50%;
+  top: 40px;
+  margin-left: -35vw;
+  z-index: 1;
+  width: 70vw;
+  height: auto;
+  position: fixed;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.stage {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+	position: absolute;
+	z-index:2;
+  /*-webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  -ms-perspective-origin: 50% 50%;
+  -o-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;*/
+}
+
+.ball {
+  display: inline-block;
+  width: 40vw;
+  height: 40vw;
+  border-radius: 100%;
+  position: relative;
+  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
+}
+
+	.ball:before {
+    content: "";
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+    background: radial-gradient(circle at top, white, rgba(255, 255, 255, 0) 58%);
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    z-index: 2; }
+		
+  .ball:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    z-index: 2;
+    -webkit-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg); }
+		
+  .ball .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    -webkit-transform: rotateX(90deg) translateZ(-160px);
+    transform: rotateX(90deg) translateZ(-160px);
+    z-index: 1; }
+		
+.ball.plain {
+	background: black;
+}
+		
+.ball.plain:before, .ball.plain:after {
+	display: none;
+}
+			
+.ball {
+  background: radial-gradient(circle at 50% 55%, rgba(240, 245, 255, 0.95), rgba(240, 245, 255, 0.95) 40%, rgba(225, 238, 255, 0.8) 60%, rgba(43, 130, 255, 0.4));
+	position: absolute;
+}
+
+.ball#b1 {
+    -webkit-animation: float 6s infinite ease-in-out;
+    animation: float 6s infinite ease-in-out;
+		width: 40vw;
+		height: 40vw;
+		z-index: 3;
+		top: 20vh;
+		left: 17vw;
+}
+.ball#b2 {
+    -webkit-animation: float 5s infinite ease-in-out;
+    animation: float 5s infinite ease-in-out;
+		width: 34vw;
+		height: 34vw;
+		z-index: 3;
+		top: 22vh;
+		left: 48vw;
+}
+.ball#b3 {
+    -webkit-animation: float 9s infinite ease-in-out;
+    animation: float 9s infinite ease-in-out;
+		width: 48vw;
+		height: 48vw;
+		z-index: 3;
+		top: 17vh;
+		left: 68vw;
+}
+.ball#b4 {
+    -webkit-animation: float 4s infinite ease-in-out;
+    animation: float 4s infinite ease-in-out;
+		width: 27vw;
+		height: 27vw;
+		z-index: 4;
+		top: 40vh;
+		left: 24vw;
+}
+.ball#b5 {
+    -webkit-animation: float 8s infinite ease-in-out;
+    animation: float 8s infinite ease-in-out;
+		width: 20vw;
+		height: 20vw;
+		z-index: 3;
+		top: 13vh;
+		left: 16vw;
+}
+.ball#b6 {
+    -webkit-animation: float 3s infinite ease-in-out;
+    animation: float 3s infinite ease-in-out;
+		width: 43vw;
+		height: 43vw;
+		z-index: 3;
+		top: 40vh;
+		left: 57vw;
+}
+
+.ball#b7 {
+    -webkit-animation: float 5s infinite ease-in-out;
+    animation: float 5s infinite ease-in-out;
+		width: 22vw;
+		height: 22vw;
+		z-index: 3;
+		top: 41vh;
+		left: 6vw;
+}
+.ball#b8 {
+    -webkit-animation: float 8s infinite ease-in-out;
+    animation: float 8s infinite ease-in-out;
+		width: 43vw;
+		height: 43vw;
+		z-index: 3;
+		top: 53vh;
+		left: 6vw;
+}
+.ball#b9 {
+    -webkit-animation: float 4s infinite ease-in-out;
+    animation: float 4s infinite ease-in-out;
+		width: 48vw;
+		height: 48vw;
+		z-index: 3;
+		top: 38vh;
+		left: 30vw;
+}
+.ball#b10 {
+    -webkit-animation: float 5s infinite ease-in-out;
+    animation: float 5s infinite ease-in-out;
+		width: 29vw;
+		height: 29vw;
+		z-index: 3;
+		top: 58vh;
+		left: 60vw;
+}
+.ball#b11 {
+    -webkit-animation: float 11s infinite ease-in-out;
+    animation: float 11s infinite ease-in-out;
+		width: 30vw;
+		height: 30vw;
+		z-index: 3;
+		top: 64vh;
+		left: 32vw;
+}
+.ball#b12 {
+    -webkit-animation: float 7s infinite ease-in-out;
+    animation: float 7s infinite ease-in-out;
+		width: 22vw;
+		height: 22vw;
+		z-index: 3;
+		top: 77vh;
+		left: 63vw;
+}
+
+
+
+
+
+
+.ball.bubble:before {
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      height: 80%;
+      width: 40%;
+      background: radial-gradient(circle at 130% 130%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 58%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+      -webkit-transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+      transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+}
+			
+
+.ball.bubble:after {
+      display: block;
+      background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 74%, white 80%, white 84%, rgba(255, 255, 255, 0) 100%); }
+
+
+
+
+
+
+
+@-webkit-keyframes bubble-anim {
+	
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+
+  20% {
+    -webkit-transform: scaleY(0.95) scaleX(1.05);
+    transform: scaleY(0.95) scaleX(1.05); }
+
+  48% {
+    -webkit-transform: scaleY(1.1) scaleX(0.9);
+    transform: scaleY(1.1) scaleX(0.9); }
+
+  68% {
+    -webkit-transform: scaleY(0.98) scaleX(1.02);
+    transform: scaleY(0.98) scaleX(1.02); }
+
+  80% {
+    -webkit-transform: scaleY(1.02) scaleX(0.98);
+    transform: scaleY(1.02) scaleX(0.98); }
+
+  97%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes bubble-anim {
+	
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+
+  20% {
+    -webkit-transform: scaleY(0.98) scaleX(1.03);
+    transform: scaleY(0.98) scaleX(1.03); }
+
+  48% {
+    -webkit-transform: scaleY(1.05) scaleX(0.95);
+    transform: scaleY(1.05) scaleX(0.95); }
+
+  68% {
+    -webkit-transform: scaleY(0.99) scaleX(1.01);
+    transform: scaleY(0.99) scaleX(1.01); }
+
+  80% {
+    -webkit-transform: scaleY(1.01) scaleX(0.99);
+    transform: scaleY(1.01) scaleX(0.99); }
+
+  97%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+}
+
+
+
+@-webkit-keyframes float {
+    from {
+        -webkit-transform:translateY(0px);
+    }
+    65% {
+        -webkit-transform:translateY(15px);
+    }
+    to {
+        -webkit-transform: translateY(-0px);
+    }
+}
+@keyframes float {
+    from {
+        -webkit-transform:translateY(0px);
+    }
+    65% {
+        -webkit-transform:translateY(15px);
+    }
+    to {
+        -webkit-transform: translateY(-0px);
+    }
+}
+
+
+</style>
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div class="stage">
+	<div class="ball bubble float" id="b1"></div>
+	<div class="ball bubble float" id="b2"></div>
+	<!--div class="ball bubble float" id="b3"></div-->
+	<div class="ball bubble float" id="b4"></div>
+	<div class="ball bubble float" id="b5"></div>
+	<div class="ball bubble float" id="b6"></div>
+  
+	<div class="ball bubble float" id="b7"></div>
+	<div class="ball bubble float" id="b8"></div>
+	<div class="ball bubble float" id="b9"></div>
+	<div class="ball bubble float" id="b10"></div>
+	<div class="ball bubble float" id="b11"></div>
+	<div class="ball bubble float" id="b12"></div>
+</div>
+
+
+
+
+<div id="container">
+	<img src="images/ernie.jpg" />
+</div>
+
+
+
+
+
+</body>
+</html>
+
+
+<script>
+	$("#b1").click(function(){
+		$("#b1").hide().delay(1400).fadeIn(200);
+	});
+	$("#b2").click(function(){
+		$("#b2").hide().delay(1400).fadeIn(200);
+	});
+	$("#b3").click(function(){
+		$("#b3").hide().delay(1400).fadeIn(200);
+	});
+	$("#b4").click(function(){
+		$("#b4").hide().delay(1400).fadeIn(200);
+	});
+	$("#b5").click(function(){
+		$("#b5").hide().delay(1400).fadeIn(200);
+	});
+	$("#b6").click(function(){
+		$("#b6").hide().delay(1400).fadeIn(200);
+	});
+	$("#b7").click(function(){
+		$("#b7").hide().delay(1400).fadeIn(200);
+	});
+	$("#b8").click(function(){
+		$("#b8").hide().delay(1400).fadeIn(200);
+	});
+	$("#b9").click(function(){
+		$("#b9").hide().delay(1400).fadeIn(200);
+	});
+	$("#b10").click(function(){
+		$("#b10").hide().delay(1400).fadeIn(200);
+	});
+	$("#b11").click(function(){
+		$("#b11").hide().delay(1400).fadeIn(200);
+	});
+	$("#b12").click(function(){
+		$("#b12").hide().delay(1400).fadeIn(200);
+	});
+</script>
+
+
+
+
+
