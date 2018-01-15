@@ -28,6 +28,6 @@
         <variable name="CSDK_CLIENT_SECRET_ANDROID" value="05e1586e-c908-4a57-92ea-3d0f0ac1373f" />
     </plugin>
     <plugin name="phonegap-plugin-csdk-image-editor" spec="~1.0.0" />
-		<plugin name="phonegap-plugin-image-capture" spec="~1.1.2" /-->
+		<plugin name="phonegap-plugin-image-capture" spec="~1.1.2" />
 
 </widget>
