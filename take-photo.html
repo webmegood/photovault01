@@ -21,27 +21,63 @@ body {
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <title>Take a Photo</title>
+    
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    
+<script type="text/javascript" charset="utf-8">
+var pictureSource;
+var destinationType;
+
+document.addEventListener("deviceready",onDeviceReady,false);
+function onDeviceReady() {
+pictureSource=navigator.camera.PictureSourceType;
+destinationType=navigator.camera.DestinationType;
+}
+
+function onPhotoDataSuccess(imageData) {
+var smallImage = document.getElementById('smallImage');
+smallImage.style.display = 'block';
+smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+function onPhotoURISuccess(imageURI) {
+alert("inside large image")
+var largeImage = document.getElementById('largeImage');
+largeImage.style.display = 'block';
+largeImage.src = imageURI;
+}
+
+function capturePhoto() {
+navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+destinationType: destinationType.DATA_URL });
+}
+
+function capturePhotoEdit() {
+navigator.camera.getPicture(onPhotoDataSuccess, onFail,
+{ quality: 20, allowEdit: true,
+destinationType: destinationType.DATA_URL });
+}
+
+function getPhoto(source) {
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+destinationType: destinationType.FILE_URI,
+sourceType: source });
+}
+
+function onFail(message) {
+alert('Failed because: ' + message);
+}
+</script>    
+    
 </head>
 <body>
-    <div class="app">
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
-    </div>
-
-    <button id="myBtn">Capture Photo</button> <br>
-
-    <img style="display:none;width:80px;height:80px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
-
-    <script>
-        document.getElementById("myBtn").addEventListener("click", capturePhoto());
-    </script> 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-
-
+<button onclick="capturePhoto();">Capture Photo</button> <br>
+<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+<img style="display:none;" id="largeImage" src="" />
 </body>
 </html>
 
